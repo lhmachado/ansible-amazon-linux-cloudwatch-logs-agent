@@ -1,0 +1,17 @@
+---
+galaxy_info:
+  author: Alexandre L
+  description: Install and configure AWS CloudWatch Logs Agent on Amazon Linux
+  license: MIT
+  min_ansible_version: 2.6
+  platforms:
+  - name: Amazon
+    versions:
+    - all
+  
+  categories:
+  - cloud
+  - cloud:ec2
+  - monitoring
+  - cloudwatch
+dependencies: []

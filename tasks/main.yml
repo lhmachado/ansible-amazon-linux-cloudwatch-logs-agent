@@ -1,0 +1,27 @@
+---
+- name: "Install CloudWatch Log Agent"
+  yum:
+    name: awslogs
+    state: present
+
+- name: "Configure AWS CloudWatch Logs Agent"
+  template:
+    src: etc/awslogs/awslogs.conf.j2
+    dest: /etc/awslogs/awslogs.conf
+    owner: root
+    group: root
+    mode: 0644
+
+- name: "Configure Cloud-Init for AWS CloudWatch Logs Agent"
+  copy:
+    src: etc/cloud/cloud.cfg.d/02_awslogs.cfg
+    dest: /etc/cloud/cloud.cfg.d/02_awslogs.cfg
+    owner: root
+    group: root
+    mode: 0644
+
+- name: "Restart awslogs service"
+  service:
+    name: awslogs
+    state: restarted
+    enabled: yes
