@@ -22,6 +22,6 @@
 
 - name: "Restart awslogs service"
   service:
-    name: awslogs
+    name: awslogsd #Amazon Linux 2 Patch
     state: restarted
     enabled: yes
